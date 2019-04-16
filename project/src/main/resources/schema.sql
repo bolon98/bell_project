@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Organization (
     kpp              VARCHAR(50) NOT NULL  COMMENT 'КПП',
     address          VARCHAR(50) NOT NULL  COMMENT 'Адрес',
     phone            VARCHAR(50) NOT NULL  COMMENT 'Телефон',
-    is_active        BIT DEFAULT true      COMMENT 'Активность'
+    is_active        BIT                   COMMENT 'Активность'
 );
 COMMENT ON TABLE Organization IS 'Организация';
 
@@ -17,9 +17,25 @@ CREATE TABLE IF NOT EXISTS Office (
     name             VARCHAR(50) NOT NULL COMMENT 'Имя',
     address          VARCHAR(50) NOT NULL COMMENT 'Адрес',
     phone            VARCHAR(50) NOT NULL COMMENT 'Телефон',
-    is_active        BIT DEFAULT true     COMMENT 'Активность'
+    is_active        BIT                  COMMENT 'Активность',
+    org_id           INTEGER              COMMENT 'Идентификатор организации',
+    FOREIGN KEY (org_id) REFERENCES Organization(id)
 );
 COMMENT ON TABLE Office IS 'Офис';
+
+CREATE TABLE IF NOT EXISTS Docs (
+    id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
+    name             VARCHAR(50) NOT NULL COMMENT 'Имя',
+    code             INTEGER NOT NULL     COMMENT 'Код'
+);
+COMMENT ON TABLE Docs IS 'Документы';
+
+CREATE TABLE IF NOT EXISTS Countries (
+    id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
+    name             VARCHAR(50) NOT NULL COMMENT 'Имя',
+    code             INTEGER NOT NULL     COMMENT 'Код'
+);
+COMMENT ON TABLE Countries IS 'Страны';
 
 CREATE TABLE IF NOT EXISTS User (
     id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
@@ -29,23 +45,14 @@ CREATE TABLE IF NOT EXISTS User (
     middle_name      VARCHAR(50) NOT NULL COMMENT 'Отчество',
     position         VARCHAR(50) NOT NULL COMMENT 'Должность',
     phone            VARCHAR(50) NOT NULL COMMENT 'Телефон',
-    doc_name         VARCHAR(50) NOT NULL COMMENT 'Название документа',
-    doc_number       INTEGER NOT NULL     COMMENT 'Номер документа',
-    doc_date         DATE NOT NULL        COMMENT 'Дата документа',
-    citizenship_name VARCHAR(50) NOT NULL COMMENT 'Гражданство',
-    citizenship_code INTEGER NOT NULL     COMMENT 'Код гражданства',
-    is_identified    BIT DEFAULT true     COMMENT 'Идентификация'
+    doc_id           INTEGER              COMMENT 'Идентификатор документа' ,
+    doc_number       INTEGER              COMMENT 'Номер документа',
+    doc_date         DATE                 COMMENT 'Дата документа',
+    country_id       INTEGER              COMMENT 'Иденификатор страны',
+    is_identified    BIT                  COMMENT 'Идентификация',
+    office_id        INTEGER              COMMENT 'Идентификатор офиса',
+    FOREIGN KEY (doc_id) REFERENCES Docs(id),
+    FOREIGN KEY (country_id) REFERENCES Countries(id),
+    FOREIGN KEY (office_id) REFERENCES Office(id)
 );
 COMMENT ON TABLE User IS 'Сотрудник';
-
-CREATE TABLE IF NOT EXISTS Docs (
-    name             VARCHAR(50) NOT NULL COMMENT 'Имя',
-    code             INTEGER NOT NULL     COMMENT 'Код'
-);
-COMMENT ON TABLE Docs IS 'Документы';
-
-CREATE TABLE IF NOT EXISTS Countries (
-    name             VARCHAR(50) NOT NULL COMMENT 'Имя',
-    code             INTEGER NOT NULL     COMMENT 'Код'
-);
-COMMENT ON TABLE Countries IS 'Страны';

@@ -7,7 +7,7 @@ import javax.persistence.Table;
  * Страны
  */
 //@Entity
-//Table(name = "Countries")
+//@Table(name = "Countries")
 public class Countries {
 
 }
