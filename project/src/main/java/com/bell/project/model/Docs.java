@@ -1,9 +1,6 @@
 package com.bell.project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Документы
@@ -11,21 +8,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Docs")
 public class Docs {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private Integer id;
 
     /**
      * Название документа
      */
-
+    @Column(name = "name", length = 50, nullable = false)
     private String name;
 
     /**
      * Код документа
      */
-
+    @Column(name = "code", nullable = false)
     private Integer code;
+
+    /**
+     * Конструктор для hibernate
+     */
+    public Docs() {
+    }
+
+    public Docs(String name, Integer code) {
+        this.name = name;
+        this.code = code;
+    }
 
     public Integer getId() {
         return id;
