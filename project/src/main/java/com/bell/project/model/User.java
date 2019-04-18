@@ -67,6 +67,7 @@ public class User {
      * Дата документа
      */
     @Column(name = "doc_date")
+    @Temporal(TemporalType.DATE)
     private Date doc_date;
 
     /**
