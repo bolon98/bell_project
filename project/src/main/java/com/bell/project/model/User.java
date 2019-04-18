@@ -24,7 +24,7 @@ public class User {
     /**
      * Имя
      */
-    @Column(name = "furst_name", length = 50, nullable = false)
+    @Column(name = "first_name", length = 50, nullable = false)
     private String first_name;
 
     /**
@@ -54,8 +54,9 @@ public class User {
     /**
      * Идентификатор документа
      */
-    @Column(name = "doc_id")
-    private Integer doc_id;
+    @OneToOne
+    @JoinColumn(name = "doc_id")
+    private Doc doc;
 
     /**
      * Номер документа
@@ -73,8 +74,9 @@ public class User {
     /**
      * Идентиыфикатор страны
      */
-    @Column(name = "country_id")
-    private Integer country_id;
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Countries country;
 
     /**
      * Идентиыфикация
@@ -94,16 +96,16 @@ public class User {
     public User() {
     }
 
-    public User(String first_name, String second_name, String middle_name, String position, String phone, Integer doc_id, Integer doc_number, Date doc_date, Integer country_id, Boolean is_identified, Integer office_id) {
+    public User(String first_name, String second_name, String middle_name, String position, String phone, Doc doc, Integer doc_number, Date doc_date, Countries country, Boolean is_identified, Integer office_id) {
         this.first_name = first_name;
         this.second_name = second_name;
         this.middle_name = middle_name;
         this.position = position;
         this.phone = phone;
-        this.doc_id = doc_id;
+        this.doc = doc;
         this.doc_number = doc_number;
         this.doc_date = doc_date;
-        this.country_id = country_id;
+        this.country = country;
         this.is_identified = is_identified;
         this.office_id = office_id;
     }
@@ -164,12 +166,12 @@ public class User {
         this.phone = phone;
     }
 
-    public Integer getDoc_id() {
-        return doc_id;
+    public Doc getDoc() {
+        return doc;
     }
 
-    public void setDoc_id(Integer doc_id) {
-        this.doc_id = doc_id;
+    public void setDoc(Doc doc) {
+        this.doc = doc;
     }
 
     public Integer getDoc_number() {
@@ -188,12 +190,12 @@ public class User {
         this.doc_date = doc_date;
     }
 
-    public Integer getCountry_id() {
-        return country_id;
+    public Countries getCountry() {
+        return country;
     }
 
-    public void setCountry_id(Integer country_id) {
-        this.country_id = country_id;
+    public void setCountry(Countries country) {
+        this.country = country;
     }
 
     public Boolean getIs_identified() {

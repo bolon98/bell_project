@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Docs")
-public class Docs {
+public class Doc {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,10 +29,10 @@ public class Docs {
     /**
      * Конструктор для hibernate
      */
-    public Docs() {
+    public Doc() {
     }
 
-    public Docs(String name, Integer code) {
+    public Doc(String name, Integer code) {
         this.name = name;
         this.code = code;
     }
