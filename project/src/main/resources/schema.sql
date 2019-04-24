@@ -23,12 +23,11 @@ CREATE TABLE IF NOT EXISTS Office (
 );
 COMMENT ON TABLE Office IS 'Офис';
 
-CREATE TABLE IF NOT EXISTS Docs (
-    id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
-    name             VARCHAR(50) NOT NULL COMMENT 'Название документа',
-    code             INTEGER NOT NULL     COMMENT 'Код документа'
+CREATE TABLE IF NOT EXISTS Doc_type (
+    id_code          INTEGER              COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT ,
+    name             VARCHAR(50) NOT NULL COMMENT 'Название документа'
 );
-COMMENT ON TABLE Docs IS 'Документы';
+COMMENT ON TABLE Doc_type IS 'Тип документов';
 
 CREATE TABLE IF NOT EXISTS Countries (
     id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
@@ -45,14 +44,21 @@ CREATE TABLE IF NOT EXISTS User (
     middle_name      VARCHAR(50) NOT NULL COMMENT 'Отчество',
     position         VARCHAR(50) NOT NULL COMMENT 'Должность',
     phone            VARCHAR(50) NOT NULL COMMENT 'Телефон',
-    doc_id           INTEGER              COMMENT 'Идентификатор документа' ,
-    doc_number       INTEGER              COMMENT 'Номер документа',
-    doc_date         DATE                 COMMENT 'Дата документа',
     country_id       INTEGER              COMMENT 'Иденификатор страны',
     is_identified    BIT                  COMMENT 'Идентификация',
     office_id        INTEGER              COMMENT 'Идентификатор офиса',
-    FOREIGN KEY (doc_id) REFERENCES Docs(id),
     FOREIGN KEY (country_id) REFERENCES Countries(id),
     FOREIGN KEY (office_id) REFERENCES Office(id)
 );
 COMMENT ON TABLE User IS 'Сотрудник';
+
+CREATE TABLE IF NOT EXISTS User_doc (
+    id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
+    number           INTEGER NOT NULL     COMMENT 'Номер документа',
+    date             DATE NOT NULL        COMMENT 'Дата документа',
+    doc_type_id      INTEGER NOT NULL     COMMENT 'Идентификатор офиса',
+    user_id          INTEGER NOT NULL     COMMENT 'Идентификатор офиса',
+    FOREIGN KEY (doc_type_id) REFERENCES Doc_type(id_code),
+    FOREIGN KEY (user_id) REFERENCES User(id)
+);
+COMMENT ON TABLE User_doc IS 'Документы сотрудника';

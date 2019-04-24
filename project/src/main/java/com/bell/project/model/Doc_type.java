@@ -6,13 +6,16 @@ import javax.persistence.*;
  * Документы
  */
 @Entity
-@Table(name = "Docs")
-public class Doc {
+@Table(name = "Doc_type")
+public class Doc_type {
 
+    /**
+     * Код документа
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
-    private Integer id;
+    @Column(name = "Id_code")
+    private Integer id_code;
 
     /**
      * Название документа
@@ -21,28 +24,22 @@ public class Doc {
     private String name;
 
     /**
-     * Код документа
-     */
-    @Column(name = "code", nullable = false)
-    private Integer code;
-
-    /**
      * Конструктор для hibernate
      */
-    public Doc() {
+    public Doc_type() {
     }
 
-    public Doc(String name, Integer code) {
+    public Doc_type(Integer id_code, String name) {
+        this.id_code = id_code;
         this.name = name;
-        this.code = code;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_code() {
+        return id_code;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_code(Integer id_code) {
+        this.id_code = id_code;
     }
 
     public String getName() {
@@ -51,13 +48,5 @@ public class Doc {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
     }
 }
