@@ -1,4 +1,4 @@
-INSERT INTO Organization (id, version, name, full_name, inn, kpp, address, phone, is_active) VALUES (1, 0, 'Bell', 'Bell Integrator', '	7733180847', '502401001', 'г. Саратов', '659483', true);
+INSERT INTO Organization (id, version, name, full_name, inn, kpp, address, phone, is_active) VALUES (1, 0, 'Bell', 'Bell Integrator', '7733180847', '502401001', 'г. Саратов', '659483', true);
 INSERT INTO Organization (id, version, name, full_name, inn, kpp, address, phone, is_active) VALUES (2, 0, 'Neoflex', 'Неофлекс-консалтинг', '7701839238', '771401001', 'г. Саратов', '082982', true);
 
 INSERT INTO Office (id, version, name, address, phone, is_active, org_id) VALUES (1, 0, 'Центральный', 'г. Пенза', '454647', true, 1);

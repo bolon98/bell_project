@@ -25,19 +25,21 @@ public class User_doc {
      * Дата документа
      */
     @Column(name = "date", nullable = false)
-    private Date code;
+    private Date date;
 
     /**
      * Тип документа
      */
-    @Column(name = "doc_type_id", nullable = false)
-    private Integer doc_type_id;
+    @OneToOne
+    @JoinColumn(name = "doc_type_id", nullable = false)
+    private Doc_type doc_type_id;
 
     /**
      * Документ сотрудника
      */
-    @Column(name = "user_id", nullable = false)
-    private Integer user_id;
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user_id;
 
     /**
      * Конструктор для hibernate
@@ -45,9 +47,9 @@ public class User_doc {
     public User_doc() {
     }
 
-    public User_doc(Integer number, Date code, Integer doc_type_id, Integer user_id) {
+    public User_doc(Integer number, Date date, Doc_type doc_type_id, User user_id) {
         this.number = number;
-        this.code = code;
+        this.date = date;
         this.doc_type_id = doc_type_id;
         this.user_id = user_id;
     }
@@ -68,27 +70,27 @@ public class User_doc {
         this.number = number;
     }
 
-    public Date getCode() {
-        return code;
+    public Date getDate() {
+        return date;
     }
 
-    public void setCode(Date code) {
-        this.code = code;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public Integer getDoc_type_id() {
+    public Doc_type getDoc_type_id() {
         return doc_type_id;
     }
 
-    public void setDoc_type_id(Integer doc_type_id) {
+    public void setDoc_type_id(Doc_type doc_type_id) {
         this.doc_type_id = doc_type_id;
     }
 
-    public Integer getUser_id() {
+    public User getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(User user_id) {
         this.user_id = user_id;
     }
 }
