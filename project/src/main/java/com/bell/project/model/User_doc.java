@@ -3,6 +3,7 @@ package com.bell.project.model;
 import javax.persistence.*;
 import java.util.Date;
 
+
 /**
  * Документы
  */
@@ -24,6 +25,7 @@ public class User_doc {
     /**
      * Дата документа
      */
+    @Temporal(TemporalType.DATE)
     @Column(name = "date", nullable = false)
     private Date date;
 

@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS User_doc (
     id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
     number           INTEGER NOT NULL     COMMENT 'Номер документа',
     date             DATE NOT NULL        COMMENT 'Дата документа',
-    doc_type_id      INTEGER NOT NULL     COMMENT 'Идентификатор офиса',
-    user_id          INTEGER NOT NULL     COMMENT 'Идентификатор офиса',
+    doc_type_id      INTEGER NOT NULL     COMMENT 'Идентификатор типа документа',
+    user_id          INTEGER NOT NULL     COMMENT 'Идентификатор сотрудника',
     FOREIGN KEY (doc_type_id) REFERENCES Doc_type(id_code),
     FOREIGN KEY (user_id) REFERENCES User(id)
 );

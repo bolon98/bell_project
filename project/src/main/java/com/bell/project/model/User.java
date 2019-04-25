@@ -51,13 +51,6 @@ public class User {
     @Column(name = "phone", length = 50, nullable = false)
     private String phone;
 
-//    /**
-//     * Идентификатор документа
-//     */
-//    @OneToOne
-//    @JoinColumn(name = "doc_id")
-//    private Doc_type docType;
-
     /**
      * Идентиыфикатор страны
      */
