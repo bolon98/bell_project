@@ -52,20 +52,20 @@ public class User {
     private String phone;
 
     /**
-     * Идентиыфикатор страны
+     * Идентификатор страны
      */
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Countries country;
 
     /**
-     * Идентиыфикация
+     * Идентификация
      */
     @Column(name = "is_identified")
     private Boolean is_identified;
 
     /**
-     * Идентиыфикатор офиса
+     * Идентификатор офиса
      */
     @Column(name = "office_id")
     private Integer office_id;

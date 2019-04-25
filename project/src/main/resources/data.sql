@@ -4,8 +4,8 @@ INSERT INTO Organization (id, version, name, full_name, inn, kpp, address, phone
 INSERT INTO Office (id, version, name, address, phone, is_active, org_id) VALUES (1, 0, 'Центральный', 'г. Пенза', '454647', true, 1);
 INSERT INTO Office (id, version, name, address, phone, is_active, org_id) VALUES (2, 0, 'Филиал', 'г. Саратов', '297254', true, 2);
 
-INSERT INTO Doc_type (id_code, name) VALUES (1, 'Паспорт');
-INSERT INTO Doc_type (id_code, name) VALUES (2, 'ИНН');
+INSERT INTO Doc_type (id, name, code) VALUES (1, 'Паспорт', 1);
+INSERT INTO Doc_type (id, name, code) VALUES (2, 'ИНН', 1);
 
 INSERT INTO Countries (id, name, code) VALUES (1, 'Россия', 1);
 INSERT INTO Countries (id, name, code) VALUES (2, 'Украина', 2);

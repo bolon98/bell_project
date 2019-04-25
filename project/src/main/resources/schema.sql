@@ -24,8 +24,9 @@ CREATE TABLE IF NOT EXISTS Office (
 COMMENT ON TABLE Office IS 'Офис';
 
 CREATE TABLE IF NOT EXISTS Doc_type (
-    id_code          INTEGER              COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT ,
-    name             VARCHAR(50) NOT NULL COMMENT 'Название документа'
+    id               INTEGER              COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT ,
+    name             VARCHAR(50) NOT NULL COMMENT 'Название документа',
+    code             INTEGER NOT NULL     COMMENT 'Код документа'
 );
 COMMENT ON TABLE Doc_type IS 'Тип документов';
 
@@ -58,7 +59,7 @@ CREATE TABLE IF NOT EXISTS User_doc (
     date             DATE NOT NULL        COMMENT 'Дата документа',
     doc_type_id      INTEGER NOT NULL     COMMENT 'Идентификатор типа документа',
     user_id          INTEGER NOT NULL     COMMENT 'Идентификатор сотрудника',
-    FOREIGN KEY (doc_type_id) REFERENCES Doc_type(id_code),
+    FOREIGN KEY (doc_type_id) REFERENCES Doc_type(id),
     FOREIGN KEY (user_id) REFERENCES User(id)
 );
 COMMENT ON TABLE User_doc IS 'Документы сотрудника';
