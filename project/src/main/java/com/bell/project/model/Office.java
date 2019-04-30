@@ -47,8 +47,9 @@ public class Office {
     /**
      * Идентификатор организации
      */
-    @Column(name = "org_id", nullable = false)
-    private Integer org_id;
+    @ManyToOne
+    @JoinColumn(name = "org_id", nullable = false)
+    private Organization org_id;
 
     /**
      * Конструктор для hibernate
@@ -56,7 +57,7 @@ public class Office {
     public Office() {
     }
 
-    public Office(String name, String address, String phone, Boolean is_active, Integer org_id) {
+    public Office(String name, String address, String phone, Boolean is_active, Organization org_id) {
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -112,11 +113,11 @@ public class Office {
         this.is_active = is_active;
     }
 
-    public Integer getOrg_id() {
+    public Organization getOrg_id() {
         return org_id;
     }
 
-    public void setOrg_id(Integer org_id) {
+    public void setOrg_id(Organization org_id) {
         this.org_id = org_id;
     }
 }

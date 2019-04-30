@@ -67,8 +67,9 @@ public class User {
     /**
      * Идентификатор офиса
      */
-    @Column(name = "office_id")
-    private Integer office_id;
+    @OneToOne
+    @JoinColumn(name = "office_id")
+    private Office office_id;
 
     /**
      * Конструктор для hibernate
@@ -76,7 +77,7 @@ public class User {
     public User() {
     }
 
-    public User(String first_name, String second_name, String middle_name, String position, String phone, Countries country, Boolean is_identified, Integer office_id) {
+    public User(String first_name, String second_name, String middle_name, String position, String phone, Countries country, Boolean is_identified, Office office_id) {
         this.first_name = first_name;
         this.second_name = second_name;
         this.middle_name = middle_name;
@@ -159,11 +160,11 @@ public class User {
         this.is_identified = is_identified;
     }
 
-    public Integer getOffice_id() {
+    public Office getOffice_id() {
         return office_id;
     }
 
-    public void setOffice_id(Integer office_id) {
+    public void setOffice_id(Office office_id) {
         this.office_id = office_id;
     }
 }
