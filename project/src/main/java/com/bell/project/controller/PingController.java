@@ -35,7 +35,7 @@ public class PingController {
         return user_doc;
     }
 
-    @RequestMapping("/organization")
+    @RequestMapping("/organiz")
     public Organization organization() {
         Organization org = em.find(Organization.class, 1);
         return org;
