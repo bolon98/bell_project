@@ -25,12 +25,12 @@ public interface OrganizationDao {
     Organization loadById(Integer id);
 
     /**
-     * Получить Organization по имени
+     * Обновить Organization
      *
-     * @param name
+     * @param
      * @return
      */
-    Organization loadByName(String name);
+    Organization update();
 
     /**
      * Сохранить Organization

@@ -1,39 +1,44 @@
 package com.bell.project.controller.organization;
 
+import com.bell.project.model.Organization;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@Api(value = "OrganizationController", description = "Управлением информацией об организациях")
+import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+@Api(value = "OrganizationController", description = "Управление информацией об организациях")
 @RestController
-@RequestMapping(value = "/organization")
+@RequestMapping(value = "/organization", produces = APPLICATION_JSON_VALUE)
 public class OrganizationController {
 
     @Autowired
     public OrganizationController() {
     }
 
-    @ApiOperation(value = "Получить список всех организаций", httpMethod = "POST")
-    @PostMapping(value = "/list")
-    public void list() {
+    @ApiOperation(value = "Получить список всех организаций", httpMethod = "GET")
+    @GetMapping(value = "/list")
+    public List<Organization> list() {
+        return list();
     }
 
     @ApiOperation(value = "Получить организации по идентификатору", httpMethod = "GET")
     @GetMapping(value = "/{id}")
-    public void id() {
+    public Organization id() {
+        return id();
     }
 
-    @ApiOperation(value = "Обновить информацию об организации", httpMethod = "POST")
-    @PostMapping(value = "/update")
-    public void update() {
+    @ApiOperation(value = "Обновить информацию об организации", httpMethod = "PUT")
+    @PutMapping(value = "/update")
+    public void update(@RequestBody Organization organization) {
     }
 
-    @ApiOperation(value = "Сохраниь информациб об организации", httpMethod = "POST")
+    @ApiOperation(value = "Сохраниь информацию об организации", httpMethod = "POST")
     @PostMapping(value = "/save")
-    public void save() {
+    public Organization save(@RequestBody Organization organization) {
+        return organization;
     }
 }
