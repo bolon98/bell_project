@@ -1,7 +1,10 @@
 package com.bell.project.controller.organization;
 
 import com.bell.project.filter.organization.OrganizationFilter;
+import com.bell.project.filter.organization.OrganizationInSave;
+import com.bell.project.filter.organization.OrganizationInUpdate;
 import com.bell.project.model.Organization;
+import com.bell.project.view.organization.OrganizationIdView;
 import com.bell.project.view.organization.OrganizationListView;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,18 +32,17 @@ public class OrganizationController {
 
     @ApiOperation(value = "Получить организации по идентификатору", httpMethod = "GET")
     @GetMapping(value = "/{id}")
-    public Organization id() {
+    public OrganizationIdView id() {
         return id();
     }
 
     @ApiOperation(value = "Обновить информацию об организации", httpMethod = "PUT")
     @PutMapping(value = "/update")
-    public void update(@RequestBody Organization organization) {
+    public void update(@RequestBody OrganizationInUpdate organizationInUpdate) {
     }
 
     @ApiOperation(value = "Сохраниь информацию об организации", httpMethod = "POST")
     @PostMapping(value = "/save")
-    public Organization save(@RequestBody Organization organization) {
-        return organization;
+    public void save(@RequestBody OrganizationInSave organizationInSave) {
     }
 }
