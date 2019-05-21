@@ -1,39 +1,61 @@
-package com.bell.project.controller.organization;
+package com.bell.project.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.bell.project.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(value = "OrganizationController", description = "Управлением информацией об организациях")
+import javax.persistence.EntityManager;
+import javax.print.Doc;
+import java.util.List;
+
+/**
+ * Контроллер, проверяющий соединение
+ */
 @RestController
-@RequestMapping(value = "/organization")
-public class OrganizationController {
+public class PingController {
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public OrganizationController() {
+    EntityManager em;
+
+    @RequestMapping("/user")
+    public User ping() {
+//        List<Doc_type> docsList = jdbcTemplate.query("SELECT * FROM Docs;", new BeanPropertyRowMapper(Doc_type.class));
+        User user = em.find(User.class, 1);
+        return user;
     }
 
-    @ApiOperation(value = "Получить список всех организаций", httpMethod = "POST")
-    @PostMapping(value = "/list")
-    public void list() {
+    @RequestMapping("/usdoc")
+    public User_doc usdoc() {
+        User_doc user_doc = em.find(User_doc.class, 1);
+        return user_doc;
     }
 
-    @ApiOperation(value = "Получить организации по идентификатору", httpMethod = "GET")
-    @GetMapping(value = "/{id}")
-    public void id() {
+    @RequestMapping("/organiz")
+    public Organization organization() {
+        Organization org = em.find(Organization.class, 1);
+        return org;
     }
 
-    @ApiOperation(value = "Обновить информацию об организации", httpMethod = "POST")
-    @PostMapping(value = "/update")
-    public void update() {
+    @RequestMapping("/office")
+    public Office office() {
+        Office office = em.find(Office.class, 1);
+        return office;
     }
 
-    @ApiOperation(value = "Сохраниь информациб об организации", httpMethod = "POST")
-    @PostMapping(value = "/save")
-    public void save() {
+    @RequestMapping("/countries")
+    public Countries countries() {
+        Countries countries = em.find(Countries.class, 1);
+        return countries;
+    }
+
+    @RequestMapping("/doctype")
+    public Doc_type doc_type() {
+        Doc_type doc_type = em.find(Doc_type.class, 1);
+        return doc_type;
     }
 }
