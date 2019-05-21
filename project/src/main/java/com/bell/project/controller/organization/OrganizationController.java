@@ -1,6 +1,8 @@
 package com.bell.project.controller.organization;
 
+import com.bell.project.filter.organization.OrganizationFilter;
 import com.bell.project.model.Organization;
+import com.bell.project.view.organization.OrganizationListView;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,10 @@ public class OrganizationController {
     public OrganizationController() {
     }
 
-    @ApiOperation(value = "Получить список всех организаций", httpMethod = "GET")
-    @GetMapping(value = "/list")
-    public List<Organization> list() {
-        return list();
+    @ApiOperation(value = "Получить список всех организаций", httpMethod = "POST")
+    @PostMapping(value = "/list")
+    public List<OrganizationListView> list(@RequestBody OrganizationFilter organizationFilter) {
+        return list(organizationFilter);
     }
 
     @ApiOperation(value = "Получить организации по идентификатору", httpMethod = "GET")
