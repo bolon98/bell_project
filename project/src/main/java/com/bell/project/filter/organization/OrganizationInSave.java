@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 /**
- * Отображение данных запроса из добавлении организаций
+ * Отображение данных запроса из добавлении организации
  */
 public class OrganizationInSave {
     @NotBlank(message = "Поле имя должно быть заполнено")
@@ -28,7 +28,7 @@ public class OrganizationInSave {
     public String address;
 
     @NotBlank(message = "Поле телефона должно быть заполнено")
-    @Size(min = 12, max = 12, message = "Введенный телефон не соответствует ограничению по количеству символов")
+    @Size(min = 6, max = 11, message = "Введенный телефон не соответствует ограничению по количеству символов")
     public String phone;
 
     @NotBlank(message = "Поле статус активности должно быть заполнено")
