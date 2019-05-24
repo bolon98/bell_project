@@ -9,7 +9,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "User_doc")
-public class User_doc {
+public class UserDoc {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,26 +34,18 @@ public class User_doc {
      */
     @OneToOne
     @JoinColumn(name = "doc_type_id", nullable = false)
-    private Doc_type doc_type_id;
-
-    /**
-     * Документ сотрудника
-     */
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user_id;
+    private DocType docType;
 
     /**
      * Конструктор для hibernate
      */
-    public User_doc() {
+    public UserDoc() {
     }
 
-    public User_doc(Integer number, Date date, Doc_type doc_type_id, User user_id) {
+    public UserDoc(Integer number, Date date, DocType docType) {
         this.number = number;
         this.date = date;
-        this.doc_type_id = doc_type_id;
-        this.user_id = user_id;
+        this.docType = docType;
     }
 
     public Integer getId() {
@@ -80,20 +72,12 @@ public class User_doc {
         this.date = date;
     }
 
-    public Doc_type getDoc_type_id() {
-        return doc_type_id;
+    public DocType getDocType() {
+        return docType;
     }
 
-    public void setDoc_type_id(Doc_type doc_type_id) {
-        this.doc_type_id = doc_type_id;
-    }
-
-    public User getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
+    public void setDocType(DocType docType) {
+        this.docType = docType;
     }
 }
 

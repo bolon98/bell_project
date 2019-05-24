@@ -10,8 +10,8 @@ INSERT INTO Doc_type (id, name, code) VALUES (2, 'ИНН', 1);
 INSERT INTO Countries (id, name, code) VALUES (1, 'Россия', 1);
 INSERT INTO Countries (id, name, code) VALUES (2, 'Украина', 2);
 
-INSERT INTO User (id, version, first_name, second_name, middle_name, position, phone, country_id, is_identified, office_id) VALUES (1, 0, 'Петр', 'Парамонов', 'Сергеевич', 'Специалист', '9069876325', 1, true, 1);
-INSERT INTO User (id, version, first_name, second_name, middle_name, position, phone, country_id, is_identified, office_id) VALUES (2, 0, 'Ярослав', 'Венедиктов', 'Юрьевич', 'мл. Специалист', '9603543987', 2, true, 2);
+INSERT INTO User_doc (id, number, date, doc_type_id) VALUES (1, 6314, '2014-03-18', 1);
+INSERT INTO User_doc (id, number, date, doc_type_id) VALUES (2, 1234, '2010-08-15', 2);
 
-INSERT INTO User_doc (id, number, date, doc_type_id, user_id) VALUES (1, 6314, '2014-03-18', 1, 1);
-INSERT INTO User_doc (id, number, date, doc_type_id, user_id) VALUES (2, 1234, '2010-08-15', 2, 2);
+INSERT INTO User (id, version, first_name, second_name, middle_name, position, phone, country_id, is_identified, office_id, user_doc_id) VALUES (1, 0, 'Петр', 'Парамонов', 'Сергеевич', 'Специалист', '9069876325', 1, true, 1, 1);
+INSERT INTO User (id, version, first_name, second_name, middle_name, position, phone, country_id, is_identified, office_id, user_doc_id) VALUES (2, 0, 'Ярослав', 'Венедиктов', 'Юрьевич', 'мл. Специалист', '9603543987', 2, true, 2, 2);

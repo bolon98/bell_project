@@ -29,8 +29,8 @@ public class Organization {
     /**
      * Полное имя
      */
-    @Column(name = "full_name", length = 50, nullable = false)
-    private String full_name;
+    @Column(name = "fullName", length = 50, nullable = false)
+    private String fullName;
 
     /**
      * ИНН
@@ -59,8 +59,8 @@ public class Organization {
     /**
      * Активность
      */
-    @Column(name = "is_active")
-    private Boolean is_active;
+    @Column(name = "isActive")
+    private Boolean isActive;
 
     /**
      * Конструктор для hibernate
@@ -68,14 +68,14 @@ public class Organization {
     public Organization() {
     }
 
-    public Organization(String name, String full_name, String inn, String kpp, String address, String phone, Boolean is_active) {
+    public Organization(String name, String fullName, String inn, String kpp, String address, String phone, Boolean isActive) {
         this.name = name;
-        this.full_name = full_name;
+        this.fullName = fullName;
         this.inn = inn;
         this.kpp = kpp;
         this.address = address;
         this.phone = phone;
-        this.is_active = is_active;
+        this.isActive = isActive;
     }
 
     public Integer getId() {
@@ -102,12 +102,12 @@ public class Organization {
         this.name = name;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getInn() {
@@ -142,11 +142,11 @@ public class Organization {
         this.phone = phone;
     }
 
-    public Boolean getIs_active() {
-        return is_active;
+    public Boolean getActive() {
+        return isActive;
     }
 
-    public void setIs_active(Boolean is_active) {
-        this.is_active = is_active;
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

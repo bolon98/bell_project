@@ -1,6 +1,6 @@
 package com.bell.project.controller.user_doc;
 
-import com.bell.project.model.User_doc;
+import com.bell.project.model.UserDoc;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +11,14 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@Api(value = "User_docController", description = "Управление информацией о документах сотрудников")
+@Api(value = "UserDocController", description = "Управление информацией о документах сотрудников")
 @RestController
-@RequestMapping(value = "/user_doc", produces = APPLICATION_JSON_VALUE)
-public class User_docController {
+@RequestMapping(value = "/userDoc", produces = APPLICATION_JSON_VALUE)
+public class UserDocController {
 
     @ApiOperation(value = "Получить список всех ", httpMethod = "GET")
     @GetMapping(value = "/list")
-    public List<User_doc> list() {
+    public List<UserDoc> list() {
         return list();
     }
 }

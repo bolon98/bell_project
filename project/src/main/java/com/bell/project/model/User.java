@@ -24,20 +24,20 @@ public class User {
     /**
      * Имя
      */
-    @Column(name = "first_name", length = 50, nullable = false)
-    private String first_name;
+    @Column(name = "firstName", length = 50, nullable = false)
+    private String firstName;
 
     /**
      * Фамилия
      */
-    @Column(name = "second_name", length = 50, nullable = false)
-    private String second_name;
+    @Column(name = "secondName", length = 50, nullable = false)
+    private String secondName;
 
     /**
      * Отчество
      */
-    @Column(name = "middle_name", length = 50, nullable = false)
-    private String middle_name;
+    @Column(name = "middleName", length = 50, nullable = false)
+    private String middleName;
 
     /**
      * Должность
@@ -62,14 +62,21 @@ public class User {
      * Идентификация
      */
     @Column(name = "is_identified")
-    private Boolean is_identified;
+    private Boolean isIdentified;
 
     /**
      * Идентификатор офиса
      */
     @OneToOne
     @JoinColumn(name = "office_id")
-    private Office office_id;
+    private Office office;
+
+    /**
+     * документ пользователя
+     */
+    @OneToOne
+    @JoinColumn(name = "user_doc_id")
+    private UserDoc userDoc;
 
     /**
      * Конструктор для hibernate
@@ -77,15 +84,16 @@ public class User {
     public User() {
     }
 
-    public User(String first_name, String second_name, String middle_name, String position, String phone, Countries country, Boolean is_identified, Office office_id) {
-        this.first_name = first_name;
-        this.second_name = second_name;
-        this.middle_name = middle_name;
+    public User(String firstName, String secondName, String middleName, String position, String phone, Countries country, Boolean isIdentified, Office office, UserDoc userDoc) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.middleName = middleName;
         this.position = position;
         this.phone = phone;
         this.country = country;
-        this.is_identified = is_identified;
-        this.office_id = office_id;
+        this.isIdentified = isIdentified;
+        this.office = office;
+        this.userDoc = userDoc;
     }
 
     public Integer getId() {
@@ -104,28 +112,28 @@ public class User {
         this.version = version;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getSecond_name() {
-        return second_name;
+    public String getSecondName() {
+        return secondName;
     }
 
-    public void setSecond_name(String second_name) {
-        this.second_name = second_name;
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
-    public String getMiddle_name() {
-        return middle_name;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setMiddle_name(String middle_name) {
-        this.middle_name = middle_name;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public String getPosition() {
@@ -152,19 +160,27 @@ public class User {
         this.country = country;
     }
 
-    public Boolean getIs_identified() {
-        return is_identified;
+    public Boolean getIdentified() {
+        return isIdentified;
     }
 
-    public void setIs_identified(Boolean is_identified) {
-        this.is_identified = is_identified;
+    public void setIdentified(Boolean identified) {
+        isIdentified = identified;
     }
 
-    public Office getOffice_id() {
-        return office_id;
+    public Office getOffice() {
+        return office;
     }
 
-    public void setOffice_id(Office office_id) {
-        this.office_id = office_id;
+    public void setOffice(Office office) {
+        this.office = office;
+    }
+
+    public UserDoc getUserDoc() {
+        return userDoc;
+    }
+
+    public void setUserDoc(UserDoc userDoc) {
+        this.userDoc = userDoc;
     }
 }

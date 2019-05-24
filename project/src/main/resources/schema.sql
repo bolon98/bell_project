@@ -37,6 +37,15 @@ CREATE TABLE IF NOT EXISTS Countries (
 );
 COMMENT ON TABLE Countries IS 'Страны';
 
+CREATE TABLE IF NOT EXISTS User_doc (
+    id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
+    number           INTEGER NOT NULL     COMMENT 'Номер документа',
+    date             DATE NOT NULL        COMMENT 'Дата документа',
+    doc_type_id      INTEGER NOT NULL     COMMENT 'Идентификатор типа документа',
+    FOREIGN KEY (doc_type_id) REFERENCES Doc_type(id)
+);
+COMMENT ON TABLE User_doc IS 'Документы сотрудника';
+
 CREATE TABLE IF NOT EXISTS User (
     id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
     version          INTEGER NOT NULL     COMMENT 'Служебное поле hibernate',
@@ -48,18 +57,9 @@ CREATE TABLE IF NOT EXISTS User (
     country_id       INTEGER              COMMENT 'Иденификатор страны',
     is_identified    BIT                  COMMENT 'Идентификация',
     office_id        INTEGER              COMMENT 'Идентификатор офиса',
+    user_doc_id      INTEGER              COMMENT 'Идентификатор документа пользователя',
     FOREIGN KEY (country_id) REFERENCES Countries(id),
-    FOREIGN KEY (office_id) REFERENCES Office(id)
+    FOREIGN KEY (office_id) REFERENCES Office(id),
+    FOREIGN KEY (user_doc_id) REFERENCES User_doc(id)
 );
 COMMENT ON TABLE User IS 'Сотрудник';
-
-CREATE TABLE IF NOT EXISTS User_doc (
-    id               INTEGER              COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT ,
-    number           INTEGER NOT NULL     COMMENT 'Номер документа',
-    date             DATE NOT NULL        COMMENT 'Дата документа',
-    doc_type_id      INTEGER NOT NULL     COMMENT 'Идентификатор типа документа',
-    user_id          INTEGER NOT NULL     COMMENT 'Идентификатор сотрудника',
-    FOREIGN KEY (doc_type_id) REFERENCES Doc_type(id),
-    FOREIGN KEY (user_id) REFERENCES User(id)
-);
-COMMENT ON TABLE User_doc IS 'Документы сотрудника';

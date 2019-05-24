@@ -13,7 +13,7 @@ public class OrganizationInSave {
 
     @NotBlank(message = "Поле полное имя должно быть заполнено")
     @Size(min = 2, max = 50, message = "Введеное полное имя не соответствует ограничению по количеству символов")
-    public String full_name;
+    public String fullName;
 
     @NotBlank(message = "Поле ИНН должно быть заполнено")
     @Size(min = 12, max = 12, message = "Введенный ИНН не соответствует ограничению по количеству символов")
@@ -37,9 +37,9 @@ public class OrganizationInSave {
     public OrganizationInSave() {
     }
 
-    public OrganizationInSave(String name, String full_name, String inn, String kpp, String address, String phone, boolean isActive) {
+    public OrganizationInSave(String name, String fullName, String inn, String kpp, String address, String phone, boolean isActive) {
         this.name = name;
-        this.full_name = full_name;
+        this.fullName = fullName;
         this.inn = inn;
         this.kpp = kpp;
         this.address = address;

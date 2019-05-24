@@ -41,15 +41,15 @@ public class Office {
     /**
      * Активность
      */
-    @Column(name = "is_active")
-    private Boolean is_active;
+    @Column(name = "isActive")
+    private Boolean isActive;
 
     /**
      * Идентификатор организации
      */
     @ManyToOne
-    @JoinColumn(name = "org_id", nullable = false)
-    private Organization org_id;
+    @JoinColumn(name = "orgId", nullable = false)
+    private Organization orgId;
 
     /**
      * Конструктор для hibernate
@@ -57,12 +57,12 @@ public class Office {
     public Office() {
     }
 
-    public Office(String name, String address, String phone, Boolean is_active, Organization org_id) {
+    public Office(String name, String address, String phone, Boolean isActive, Organization orgId) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.is_active = is_active;
-        this.org_id = org_id;
+        this.isActive = isActive;
+        this.orgId = orgId;
     }
 
     public Integer getId() {
@@ -105,19 +105,19 @@ public class Office {
         this.phone = phone;
     }
 
-    public Boolean getIs_active() {
-        return is_active;
+    public Boolean getActive() {
+        return isActive;
     }
 
-    public void setIs_active(Boolean is_active) {
-        this.is_active = is_active;
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
-    public Organization getOrg_id() {
-        return org_id;
+    public Organization getOrgId() {
+        return orgId;
     }
 
-    public void setOrg_id(Organization org_id) {
-        this.org_id = org_id;
+    public void setOrgId(Organization orgId) {
+        this.orgId = orgId;
     }
 }

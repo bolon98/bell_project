@@ -6,7 +6,7 @@ package com.bell.project.view.organization;
 public class OrganizationIdView {
     public int id;
     public String name;
-    public String full_name;
+    public String fullName;
     public String inn;
     public String kpp;
     public String address;
@@ -16,10 +16,10 @@ public class OrganizationIdView {
     public OrganizationIdView() {
     }
 
-    public OrganizationIdView(int id, String name, String full_name, String inn, String kpp, String address, String phone, boolean isActive) {
+    public OrganizationIdView(int id, String name, String fullName, String inn, String kpp, String address, String phone, boolean isActive) {
         this.id = id;
         this.name = name;
-        this.full_name = full_name;
+        this.fullName = fullName;
         this.inn = inn;
         this.kpp = kpp;
         this.address = address;

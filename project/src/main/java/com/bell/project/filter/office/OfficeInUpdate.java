@@ -25,16 +25,16 @@ public class OfficeInUpdate {
     public String phone;
 
     @NotBlank(message = "Поле статус активности должно быть заполнено")
-    public boolean is_active;
+    public boolean isActive;
 
     public OfficeInUpdate() {
     }
 
-    public OfficeInUpdate(int id, String name, String address, String phone, boolean is_active) {
+    public OfficeInUpdate(int id, String name, String address, String phone, boolean isActive) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.is_active = is_active;
+        this.isActive = isActive;
     }
 }

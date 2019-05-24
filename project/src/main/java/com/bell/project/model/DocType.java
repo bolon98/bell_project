@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Doc_type")
-public class Doc_type {
+public class DocType {
 
     /**
      * Код документа
@@ -32,10 +32,10 @@ public class Doc_type {
     /**
      * Конструктор для hibernate
      */
-    public Doc_type() {
+    public DocType() {
     }
 
-    public Doc_type(String name, Integer code) {
+    public DocType(String name, Integer code) {
         this.name = name;
         this.code = code;
     }
