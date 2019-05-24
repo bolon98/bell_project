@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 public class OfficeInUpdate {
     @NotBlank(message = "Поле идентификатора должно быть заполнено")
     @Min(value = 1, message = "Введенный идентификатор не соответствует ограничению по количеству символов")
-    public int id;
+    public Integer id;
 
     @NotBlank(message = "Поле имя должно быть заполнено")
     @Size(min = 2, max = 50, message = "Введеное имя не соответствует ограничению по количеству символов")

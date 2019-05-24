@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class DocType {
 
     /**
-     * Код документа
+     * Идентификатор документа
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

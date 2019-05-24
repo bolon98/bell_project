@@ -4,7 +4,7 @@ package com.bell.project.view.office;
  * Отображение данных
  */
 public class OfficeListView {
-    public int id;
+    public Integer id;
     public String name;
     public boolean asActive;
 

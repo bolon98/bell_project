@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 public class OfficeInSave {
     @NotBlank(message = "Поле идентификатора должно быть заполнено")
     @Min(value = 1, message = "Введенный идентификатор не соответствует ограничению по количеству символов")
-    public int orgId;
+    public Integer orgId;
 
     @NotBlank(message = "Поле имя должно быть заполнено")
     @Size(min = 2, max = 50, message = "Введеное имя не соответствует ограничению по количеству символов")
@@ -30,7 +30,7 @@ public class OfficeInSave {
     public OfficeInSave() {
     }
 
-    public OfficeInSave(int orgId, String name, String address, String phone, boolean isActive) {
+    public OfficeInSave(Integer orgId, String name, String address, String phone, boolean isActive) {
         this.orgId = orgId;
         this.name = name;
         this.address = address;
