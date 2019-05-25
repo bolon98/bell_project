@@ -1,6 +1,6 @@
 package com.bell.project.controller.doc_type;
 
-import com.bell.project.model.DocType;
+import com.bell.project.view.docType.DocTypeView;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class DocTypeController {
 
     @ApiOperation(value = "Получить список всех типов документов", httpMethod = "GET")
     @GetMapping(value = "/list")
-    public List<DocType> list() {
+    public List<DocTypeView> list() {
         return list();
     }
 }

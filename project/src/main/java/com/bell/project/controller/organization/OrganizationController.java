@@ -3,7 +3,6 @@ package com.bell.project.controller.organization;
 import com.bell.project.filter.organization.OrganizationFilter;
 import com.bell.project.filter.organization.OrganizationInSave;
 import com.bell.project.filter.organization.OrganizationInUpdate;
-import com.bell.project.model.Organization;
 import com.bell.project.view.organization.OrganizationIdView;
 import com.bell.project.view.organization.OrganizationListView;
 import io.swagger.annotations.Api;

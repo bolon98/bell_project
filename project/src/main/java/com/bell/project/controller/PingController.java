@@ -38,7 +38,7 @@ public class PingController {
         return org;
     }
 
-    @RequestMapping("/office")
+    @RequestMapping("/officeId")
     public Office office() {
         Office office = em.find(Office.class, 1);
         return office;
