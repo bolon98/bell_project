@@ -30,12 +30,11 @@ public class OrganizationDaoImpl implements OrganizationDao{
     }
 
     @Override
-    public Organization update() {
-        return null;
+    public void update(Organization organization) {em.merge(organization);
     }
 
     @Override
-    public void save(Organization organization) {
+    public void save(Organization organization) {em.persist(organization);
 
     }
 }

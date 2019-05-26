@@ -47,7 +47,12 @@
 			<artifactId>swagger-annotations</artifactId>
 			<version>1.5.3</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>

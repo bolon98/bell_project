@@ -3,6 +3,7 @@ package com.bell.project.controller.organization;
 import com.bell.project.filter.organization.OrganizationFilter;
 import com.bell.project.filter.organization.OrganizationInSave;
 import com.bell.project.filter.organization.OrganizationInUpdate;
+import com.bell.project.service.organization.OrganizationService;
 import com.bell.project.view.organization.OrganizationIdView;
 import com.bell.project.view.organization.OrganizationListView;
 import io.swagger.annotations.Api;
@@ -19,29 +20,34 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(value = "/organization", produces = APPLICATION_JSON_VALUE)
 public class OrganizationController {
 
+    private final OrganizationService orgService;
+
     @Autowired
-    public OrganizationController() {
+    public OrganizationController(OrganizationService orgService) {
+        this.orgService = orgService;
     }
 
     @ApiOperation(value = "Получить список всех организаций", httpMethod = "POST")
     @PostMapping(value = "/list")
     public List<OrganizationListView> list(@RequestBody OrganizationFilter organizationFilter) {
-        return list(organizationFilter);
+        return orgService.list(organizationFilter);
     }
 
     @ApiOperation(value = "Получить организации по идентификатору", httpMethod = "GET")
     @GetMapping(value = "/{id}")
-    public OrganizationIdView id() {
-        return id();
+    public OrganizationIdView id(@PathVariable(value = "id") Integer id) {
+        return orgService.id(id);
     }
 
     @ApiOperation(value = "Обновить информацию об организации", httpMethod = "PUT")
     @PutMapping(value = "/update")
     public void update(@RequestBody OrganizationInUpdate organizationInUpdate) {
+        orgService.update(organizationInUpdate);
     }
 
     @ApiOperation(value = "Сохраниь информацию об организации", httpMethod = "POST")
     @PostMapping(value = "/save")
     public void save(@RequestBody OrganizationInSave organizationInSave) {
+        orgService.add(organizationInSave);
     }
 }

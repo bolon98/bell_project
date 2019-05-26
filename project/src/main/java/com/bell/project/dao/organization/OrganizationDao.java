@@ -30,7 +30,7 @@ public interface OrganizationDao {
      * @param
      * @return
      */
-    Organization update();
+    void update(Organization organization);
 
     /**
      * Сохранить Organization
