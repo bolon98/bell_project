@@ -20,11 +20,9 @@ public class OfficeInUpdate {
     @Size(min = 2, max = 50, message = "Введенный адрес не соответствует ограничению по количеству символов")
     public String address;
 
-    @NotBlank(message = "Поле телефона должно быть заполнено")
     @Size(min = 6, max = 11, message = "Введенный телефон не соответствует ограничению по количеству символов")
     public String phone;
 
-    @NotBlank(message = "Поле статус активности должно быть заполнено")
     public boolean isActive;
 
     public OfficeInUpdate() {

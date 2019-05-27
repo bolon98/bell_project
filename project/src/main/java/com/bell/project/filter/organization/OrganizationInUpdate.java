@@ -8,7 +8,8 @@ import javax.validation.constraints.Size;
  * Отображение данных запроса обновления организаций
  */
 public class OrganizationInUpdate {
-    @Min(value = 1, message = "Введеное имя не соответствует ограничению по количеству символов")
+    @NotBlank(message = "Поле идентификатора должно быть заполнено")
+    @Min(value = 1, message = "Введенный  идентификатор не соответствует ограничению по количеству символов")
     public Integer id;
 
     @NotBlank(message = "Поле имя должно быть заполнено")
@@ -31,11 +32,9 @@ public class OrganizationInUpdate {
     @Size(min = 2, max = 50, message = "Введенный адрес не соответствует ограничению по количеству символов")
     public String address;
 
-    @NotBlank(message = "Поле телефона должно быть заполнено")
     @Size(min = 12, max = 12, message = "Введенный телефон не соответствует ограничению по количеству символов")
     public String phone;
 
-    @NotBlank(message = "Поле статус активности должно быть заполнено")
     public boolean isActive;
 
     public OrganizationInUpdate() {

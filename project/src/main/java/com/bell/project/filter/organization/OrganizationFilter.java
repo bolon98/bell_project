@@ -11,11 +11,9 @@ public class OrganizationFilter {
     @Size(min = 2, max = 50, message = "Введеное имя не соответствует ограничению по количеству символов")
     public String name;
 
-    @NotBlank(message = "Поле ИНН должно быть заполнено")
     @Size(min = 12, max = 12, message = "Введенный ИНН не соответствует ограничению по количеству символов")
     public String inn;
 
-    @NotBlank(message = "Поле статус активности должно быть заполнено")
     public boolean isActive;
 
     public OrganizationFilter() {
