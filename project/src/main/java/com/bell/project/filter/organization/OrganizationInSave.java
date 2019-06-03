@@ -30,12 +30,12 @@ public class OrganizationInSave {
     @Size(min = 6, max = 11, message = "Введенный телефон не соответствует ограничению по количеству символов")
     public String phone;
 
-    public boolean isActive;
+    public Boolean isActive;
 
     public OrganizationInSave() {
     }
 
-    public OrganizationInSave(String name, String fullName, String inn, String kpp, String address, String phone, boolean isActive) {
+    public OrganizationInSave(String name, String fullName, String inn, String kpp, String address, String phone, Boolean isActive) {
         this.name = name;
         this.fullName = fullName;
         this.inn = inn;

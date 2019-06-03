@@ -29,7 +29,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public List<OrganizationListView> list(@Valid OrganizationFilter orgFilter) {
-        List<Organization> all = dao.all();
+        List<Organization> all = dao.all(orgFilter.name, orgFilter.inn, orgFilter.isActive);
         return mapperFacade.mapAsList(all, OrganizationListView.class);
     }
 

@@ -36,12 +36,12 @@ public class OrganizationInUpdate {
     @Size(min = 6, max = 11, message = "Введенный телефон не соответствует ограничению по количеству символов")
     public String phone;
 
-    public boolean isActive;
+    public Boolean isActive;
 
     public OrganizationInUpdate() {
     }
 
-    public OrganizationInUpdate(Integer id, String name, String fullName, String inn, String kpp, String address, String phone, boolean isActive) {
+    public OrganizationInUpdate(Integer id, String name, String fullName, String inn, String kpp, String address, String phone, Boolean isActive) {
         this.id = id;
         this.name = name;
         this.fullName = fullName;

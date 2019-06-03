@@ -59,7 +59,7 @@ public class Organization {
     /**
      * Активность
      */
-    @Column(name = "isActive")
+    @Column(name = "is_active")
     private Boolean isActive;
 
     /**

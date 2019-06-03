@@ -1,7 +1,6 @@
 package com.bell.project.dao.organization;
 
 import com.bell.project.model.Organization;
-
 import java.util.List;
 
 /**
@@ -14,7 +13,7 @@ public interface OrganizationDao {
      *
      * @return
      */
-    List<Organization> all();
+    List<Organization> all(String name, String inn, Boolean isActive);
 
     /**
      * Получить Organization по идентификатору
