@@ -2,13 +2,14 @@ package com.bell.project.filter.organization;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  * Отображение данных запроса обновления организаций
  */
 public class OrganizationInUpdate {
-    @NotBlank(message = "Поле идентификатора должно быть заполнено")
+    @NotNull(message = "Поле идентификатора должно быть заполнено")
     @Min(value = 1, message = "Введенный  идентификатор не соответствует ограничению по количеству символов")
     public Integer id;
 
@@ -32,7 +33,7 @@ public class OrganizationInUpdate {
     @Size(min = 2, max = 50, message = "Введенный адрес не соответствует ограничению по количеству символов")
     public String address;
 
-    @Size(min = 12, max = 12, message = "Введенный телефон не соответствует ограничению по количеству символов")
+    @Size(min = 6, max = 11, message = "Введенный телефон не соответствует ограничению по количеству символов")
     public String phone;
 
     public boolean isActive;

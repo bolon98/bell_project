@@ -43,7 +43,16 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public void update(@Valid OrganizationInUpdate orgInUpdate) {
-        Organization organization = new Organization(orgInUpdate.id, orgInUpdate.name, orgInUpdate.fullName, orgInUpdate.inn, orgInUpdate.kpp, orgInUpdate.address, orgInUpdate.phone, orgInUpdate.isActive);
+        Organization organization = dao.loadById(orgInUpdate.id);
+        organization.setName(orgInUpdate.name);
+        organization.setFullName(orgInUpdate.fullName);
+        organization.setInn(orgInUpdate.inn);
+        organization.setKpp(orgInUpdate.kpp);
+        organization.setAddress(orgInUpdate.address);
+        if (orgInUpdate.phone != null){
+            organization.setPhone(orgInUpdate.phone);
+        }
+        organization.setActive(orgInUpdate.isActive);
         dao.update(organization);
     }
 

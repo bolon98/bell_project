@@ -41,13 +41,15 @@ public class OrganizationController {
 
     @ApiOperation(value = "Обновить информацию об организации", httpMethod = "PUT")
     @PutMapping(value = "/update")
-    public void update(@RequestBody OrganizationInUpdate organizationInUpdate) {
+    public String update(@RequestBody OrganizationInUpdate organizationInUpdate) {
         orgService.update(organizationInUpdate);
+        return "Success";
     }
 
     @ApiOperation(value = "Сохраниь информацию об организации", httpMethod = "POST")
     @PostMapping(value = "/save")
-    public void save(@RequestBody OrganizationInSave organizationInSave) {
+    public String save(@RequestBody OrganizationInSave organizationInSave) {
         orgService.add(organizationInSave);
+        return "Success";
     }
 }
