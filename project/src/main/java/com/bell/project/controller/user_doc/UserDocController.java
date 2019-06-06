@@ -13,7 +13,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Api(value = "UserDocController", description = "Управление информацией о документах сотрудников")
 @RestController
-@RequestMapping(value = "/userDoc", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/userDoc", produces = APPLICATION_JSON_VALUE)
 public class UserDocController {
 
     @ApiOperation(value = "Получить список всех ", httpMethod = "GET")

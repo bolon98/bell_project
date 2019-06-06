@@ -13,7 +13,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Api(value = "CountriesController", description = "Управление информацией о странах")
 @RestController
-@RequestMapping(value = "/countries", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/countries", produces = APPLICATION_JSON_VALUE)
 public class CountriesController {
 
     @ApiOperation(value = "Получить список всех стран", httpMethod = "GET")

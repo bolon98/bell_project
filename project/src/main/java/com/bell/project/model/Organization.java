@@ -82,10 +82,6 @@ public class Organization {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getVersion() {
         return version;
     }

@@ -12,7 +12,6 @@ import java.util.Date;
 public class UserDoc {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer id;
 
@@ -32,7 +31,8 @@ public class UserDoc {
     /**
      * Тип документа
      */
-    @OneToOne
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doc_type_id", nullable = false)
     private DocType docType;
 
@@ -50,10 +50,6 @@ public class UserDoc {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getNumber() {

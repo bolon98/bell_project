@@ -36,7 +36,8 @@ public class OrganizationDaoImpl implements OrganizationDao{
     }
 
     @Override
-    public void update(Organization organization) {em.merge(organization);
+    public void update(Organization organization) {
+        em.merge(organization);
     }
 
     @Override
@@ -52,12 +53,10 @@ public class OrganizationDaoImpl implements OrganizationDao{
         if (inn.length() > 0) {
             predicates.add(builder.equal(org.get("inn"), inn));
         }
-//        if (isActive != null) {
-//            predicates.add(builder.equal(org.get("isActive"), isActive));
-//        }
+        if (isActive != null) {
+            predicates.add(builder.equal(org.get("isActive"), isActive));
+        }
         criteria.select(org).where(predicates.toArray(new Predicate[]{}));
-        TypedQuery<Organization> q = em.createQuery(criteria);
-        List<Organization> allOrg = q.getResultList();
         return criteria;
     }
 }

@@ -1,5 +1,7 @@
 package com.bell.project.filter.office;
 
+import com.bell.project.model.Organization;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -10,7 +12,7 @@ import javax.validation.constraints.Size;
 public class OfficeInSave {
     @NotBlank(message = "Поле идентификатора должно быть заполнено")
     @Min(value = 1, message = "Введенный идентификатор не соответствует ограничению по количеству символов")
-    public Integer orgId;
+    public Organization orgId;
 
     @Size(min = 2, max = 50, message = "Введеное имя не соответствует ограничению по количеству символов")
     public String name;
@@ -21,12 +23,12 @@ public class OfficeInSave {
     @Size(min = 6, max = 11, message = "Введенный телефон не соответствует ограничению по количеству символов")
     public String phone;
 
-    public boolean isActive;
+    public Boolean isActive;
 
     public OfficeInSave() {
     }
 
-    public OfficeInSave(Integer orgId, String name, String address, String phone, boolean isActive) {
+    public OfficeInSave(Organization orgId, String name, String address, String phone, Boolean isActive) {
         this.orgId = orgId;
         this.name = name;
         this.address = address;

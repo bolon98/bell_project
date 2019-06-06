@@ -16,7 +16,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Api(value = "UserController", description = "Управление информацией о сотрудниках")
 @RestController
-@RequestMapping(value = "/user", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/user", produces = APPLICATION_JSON_VALUE)
 public class UserController {
 
     @Autowired

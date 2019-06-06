@@ -13,7 +13,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Api(value = "DocTypeController", description = "Управление информацией о типах документов")
 @RestController
-@RequestMapping(value = "/docType", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/docType", produces = APPLICATION_JSON_VALUE)
 public class DocTypeController {
 
     @ApiOperation(value = "Получить список всех типов документов", httpMethod = "GET")

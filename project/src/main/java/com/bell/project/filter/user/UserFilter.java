@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 public class UserFilter {
     @NotBlank(message = "Поле идентификатора оффиса должно быть заполнено")
     @Min(value = 1, message = "Введенный идентификатор не соответствует ограничению по количеству символов")
-    public Integer office;
+    public Integer officeId;
 
     @Size(min = 2, max = 50, message = "Введенное имя не соответствует ограничению по количеству символов")
     public String firstName;
@@ -33,8 +33,8 @@ public class UserFilter {
     public UserFilter() {
     }
 
-    public UserFilter(Integer office, String firstName, String secondName, String middleName, String position, Integer docCode, Integer citizenshipCode) {
-        this.office = office;
+    public UserFilter(Integer officeId, String firstName, String secondName, String middleName, String position, Integer docCode, Integer citizenshipCode) {
+        this.officeId = officeId;
         this.firstName = firstName;
         this.secondName = secondName;
         this.middleName = middleName;

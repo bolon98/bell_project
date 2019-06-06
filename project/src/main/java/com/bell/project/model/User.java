@@ -54,9 +54,10 @@ public class User {
     /**
      * Идентификатор страны
      */
-    @ManyToOne
+    @MapsId
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
-    private Countries country;
+    private Countries countryId;
 
     /**
      * Идентификация
@@ -67,14 +68,15 @@ public class User {
     /**
      * Идентификатор офиса
      */
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "office_id")
-    private Office office;
+    private Office officeId;
 
     /**
      * документ пользователя
      */
-    @OneToOne
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_doc_id")
     private UserDoc userDoc;
 
@@ -84,24 +86,20 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String secondName, String middleName, String position, String phone, Countries country, Boolean isIdentified, Office office, UserDoc userDoc) {
+    public User(String firstName, String secondName, String middleName, String position, String phone, Countries countryId, Boolean isIdentified, Office officeId, UserDoc userDoc) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.middleName = middleName;
         this.position = position;
         this.phone = phone;
-        this.country = country;
+        this.countryId = countryId;
         this.isIdentified = isIdentified;
-        this.office = office;
+        this.officeId = officeId;
         this.userDoc = userDoc;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getVersion() {
@@ -152,12 +150,12 @@ public class User {
         this.phone = phone;
     }
 
-    public Countries getCountry() {
-        return country;
+    public Countries getCountryId() {
+        return countryId;
     }
 
-    public void setCountry(Countries country) {
-        this.country = country;
+    public void setCountryId(Countries countryId) {
+        this.countryId = countryId;
     }
 
     public Boolean getIdentified() {
@@ -168,12 +166,12 @@ public class User {
         isIdentified = identified;
     }
 
-    public Office getOffice() {
-        return office;
+    public Office getOfficeId() {
+        return officeId;
     }
 
-    public void setOffice(Office office) {
-        this.office = office;
+    public void setOfficeId(Office officeId) {
+        this.officeId = officeId;
     }
 
     public UserDoc getUserDoc() {

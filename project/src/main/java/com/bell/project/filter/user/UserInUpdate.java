@@ -3,6 +3,7 @@ package com.bell.project.filter.user;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 /**
  * Отображение данных запроса обновления пользователей
@@ -39,17 +40,17 @@ public class UserInUpdate {
     public Integer docNumber;
 
     @Size(min = 6, max = 12, message = "Введенная дата документа не соответствует ограничению по количеству символов")
-    public String docDate;
+    public Date docDate;
 
     @Min(value = 1, message = "Введенный код гражданства не соответствует ограничению по количеству символов")
     public Integer citizenshipCode;
 
-    public boolean isIdentified;
+    public Boolean isIdentified;
 
     public UserInUpdate() {
     }
 
-    public UserInUpdate(Integer id, Integer officeId, String firstName, String secondName, String middleName, String position, String phone, String docName, Integer docNumber, String docDate, Integer citizenshipCode, boolean isIdentified) {
+    public UserInUpdate(Integer id, Integer officeId, String firstName, String secondName, String middleName, String position, String phone, String docName, Integer docNumber, Date docDate, Integer citizenshipCode, Boolean isIdentified) {
         this.id = id;
         this.officeId = officeId;
         this.firstName = firstName;

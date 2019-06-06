@@ -41,14 +41,14 @@ public class Office {
     /**
      * Активность
      */
-    @Column(name = "isActive")
+    @Column(name = "is_active")
     private Boolean isActive;
 
     /**
      * Идентификатор организации
      */
-    @ManyToOne
-    @JoinColumn(name = "orgId", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "org_id", nullable = false)
     private Organization orgId;
 
     /**
@@ -67,10 +67,6 @@ public class Office {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getVersion() {

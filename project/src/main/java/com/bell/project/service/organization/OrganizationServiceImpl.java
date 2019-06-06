@@ -52,7 +52,9 @@ public class OrganizationServiceImpl implements OrganizationService {
         if (orgInUpdate.phone != null){
             organization.setPhone(orgInUpdate.phone);
         }
-        organization.setActive(orgInUpdate.isActive);
+        if (orgInUpdate.isActive != null) {
+            organization.setActive(orgInUpdate.isActive);
+        }
         dao.update(organization);
     }
 

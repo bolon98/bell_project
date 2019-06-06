@@ -10,7 +10,6 @@ import javax.persistence.*;
 public class Countries {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer id;
 
@@ -39,10 +38,6 @@ public class Countries {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {

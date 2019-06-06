@@ -1,6 +1,7 @@
 package com.bell.project.filter.organization;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,7 +14,7 @@ public class OrganizationFilter {
     public String name;
 
     @NotNull(message = "Поле имя должно быть заполнено")
-//    @Size(min = 10, max = 12, message = "Введенный ИНН не соответствует ограничению по количеству символов")
+    @Size(max = 12, message = "Введенный ИНН не соответствует ограничению по количеству символов")
     public String inn;
 
     public Boolean isActive;
